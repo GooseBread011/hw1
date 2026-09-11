@@ -80,7 +80,7 @@ void ULListStr::push_back(const std::string& val)
     tail_->val[0] = val;
   }
   // We have room
-  
+
 
   // No we don't
 
@@ -94,7 +94,10 @@ void ULListStr::push_front(const std::string& val)
     head_ == new Item;
     tail_ = head_;
   }
-  // We have room
+  // We have room (we have space left in ARRSIZE)
+  else if (tail_->last < ARRSIZE){
+    tail->[tail->last] = val;
+  }
 
   // No we don't
 }
@@ -114,13 +117,13 @@ void ULListStr::pop_front()
 // back function - returns a reference to the back element
 std::string const& ULListStr::back() const
 {
-
+  return tail_->val[tail_->last - 1];
 }
 
 // Front function - returns a reference to the front element
 std::string const& ULListStr::front() const
 {
-
+  return head_->val[head->first];
 }
 
 //GetValatLoc function - returns a pointer to the item at i, loc 
