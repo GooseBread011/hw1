@@ -63,3 +63,68 @@ void ULListStr::clear()
   tail_ = NULL;
   size_ = 0;
 }
+
+// Push back function - add to back of list
+void ULListStr::push_back(const std::string& val)
+{
+  // Empty list
+  if (tail_ == NULL){
+    head_ = new Item;
+    tail_ = head_;
+
+    // Point first to index 0
+    // Point last to index 1
+    tail_->first = 0;
+    tail_->last = 1;
+    // Put string in index 0
+    tail_->val[0] = val;
+  }
+  // We have room
+  
+
+  // No we don't
+
+}
+
+// add new value to front of list
+void ULListStr::push_front(const std::string& val)
+{
+  // Empty list 
+  if (head_ == NULL){
+    head_ == new Item;
+    tail_ = head_;
+  }
+  // We have room
+
+  // No we don't
+}
+
+// Push_front function - remove from back of list
+void ULListStr::pop_back()
+{
+  
+}
+
+// Pop_back function - remove from back of list
+void ULListStr::pop_front()
+{
+
+}
+
+// back function - returns a reference to the back element
+std::string const& ULListStr::back() const
+{
+
+}
+
+// Front function - returns a reference to the front element
+std::string const& ULListStr::front() const
+{
+
+}
+
+//GetValatLoc function - returns a pointer to the item at i, loc 
+std::string* ULListStr::getValAtLoc(size_t loc) const
+{
+
+}
