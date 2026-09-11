@@ -105,13 +105,51 @@ void ULListStr::push_front(const std::string& val)
 // Push_front function - remove from back of list
 void ULListStr::pop_back()
 {
-  
+  // empty list case
+  if (size_ = 0){
+    return; // Nothing happens
+  }
+  tail_->last = tail->last - 1;
+  size_--;
+
+  // Empty node left?
+  if (tail_->first == tail_last){
+    Item* temp = tail_;
+    tail_ = tail->prev;
+    if (tail_ != NULL){
+      tail_->next = NULL;
+    }
+    else{
+      head_ = NULL;
+    }
+    delete temp;
+  }
 }
 
-// Pop_back function - remove from back of list
+// Pop_back function - remove from front of list
 void ULListStr::pop_front()
 {
+  //Empty list
+  if(size_ == 0){
+    return; // Nothing happens
+  }
+  // head moves to first
+  // size decreases
+  head_->first = head_->first + 1;
+  size_--;
 
+  // What if we are left with an empty node after we do so?
+  if (head_->first == head_->last){
+    Item* temp = head_;
+    head_ = head_->next;
+    if (head_ != NULL){
+      head->prev = NULL;
+    }
+    else{
+      tail_ = NULL;
+    }
+    delete temp;
+  }
 }
 
 // back function - returns a reference to the back element
